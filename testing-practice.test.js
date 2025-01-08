@@ -6,3 +6,5 @@ it("Imported", () => expect(capitalize).not.toBeUndefined());
 
 it("Returns a string", () =>
     expect(typeof capitalize("sandwich")).toBe("string"));
+
+it("Capitalizes", () => expect(capitalize("duck")).toBe("Duck"));

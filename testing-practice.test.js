@@ -7,7 +7,11 @@ it("Imported", () => expect(capitalize).not.toBeUndefined());
 it("Returns a string", () =>
     expect(typeof capitalize("sandwich")).toBe("string"));
 
-it("Capitalizes", () => expect(capitalize("duck")).toBe("Duck"));
+it("Capitalizes", () => {
+    expect(capitalize("duck")).toBe("Duck");
+    expect(capitalize("mouse")).toBe("Mouse");
+    expect(capitalize("yellow dog")).toBe("Yellow dog");
+});
 
 it("Deals with empty strings", () => expect(capitalize("")).toBe(""));
 

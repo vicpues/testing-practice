@@ -40,3 +40,30 @@ describe("reverseString", () => {
         expect(reverseString("A nice breakfast")).toBe("tsafkaerb ecin A");
     });
 });
+
+describe("calculator", () => {
+    describe("add", () => {
+        it("Exists", () => expect(calculator.add).not.toBeUndefined());
+
+        it("Adds two integers", () => {
+            expect(calculator.add(2, 3)).toEqual(5);
+            expect(calculator.add(10, 11)).toEqual(21);
+            expect(calculator.add(1001, 345)).toEqual(1346);
+        });
+
+        it("Adds floating point numbers", () =>
+            expect(calculator.add(0.2, 1)).toBeCloseTo(1.2));
+
+        it("Converts strings to numbers", () =>
+            expect(calculator.add("2", "3")).toEqual(5));
+
+        it("Deals with non-convertible strings", () =>
+            expect(() => calculator.add(5, "banana")).toThrow(TypeError));
+
+        it("Deals with other invalid types", () =>
+            expect(() => calculator.add(null, null)).toThrow(TypeError));
+
+        it("Deals with invalid number of args", () =>
+            expect(() => calculator.add(3)).toThrow(TypeError));
+    });
+});

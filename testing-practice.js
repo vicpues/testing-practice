@@ -15,4 +15,14 @@ export function reverseString(string) {
     return string.split("").reverse().join("");
 }
 
-export const calculator = {};
+export const calculator = {
+    nonNumberError: new TypeError("Please use two numbers or number strings"),
+
+    add: (a, b) => {
+        if (a === null || b === null) throw this.nonNumberError;
+        a = Number(a);
+        b = Number(b);
+        if (isNaN(a) || isNaN(b)) throw this.nonNumberError;
+        return a + b;
+    },
+};

@@ -8,3 +8,5 @@ it("Returns a string", () =>
     expect(typeof capitalize("sandwich")).toBe("string"));
 
 it("Capitalizes", () => expect(capitalize("duck")).toBe("Duck"));
+
+it("Deals with empty strings", () => expect(capitalize("")).toBe(""));

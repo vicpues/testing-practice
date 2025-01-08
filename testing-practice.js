@@ -16,13 +16,25 @@ export function reverseString(string) {
 }
 
 export const calculator = {
-    nonNumberError: new TypeError("Please use two numbers or number strings"),
+    toNumber: (num) => {
+        const message = "Please use a number or number string";
 
-    add: (a, b) => {
-        if (a === null || b === null) throw this.nonNumberError;
-        a = Number(a);
-        b = Number(b);
-        if (isNaN(a) || isNaN(b)) throw this.nonNumberError;
+        const typeNum = Number(num);
+        if (num === null) throw new TypeError(message);
+        if (isNaN(typeNum)) throw new TypeError(message);
+
+        return typeNum;
+    },
+
+    add: function (a, b) {
+        a = this.toNumber(a);
+        b = this.toNumber(b);
         return a + b;
+    },
+
+    multiply: function (a, b) {
+        a = this.toNumber(a);
+        b = this.toNumber(b);
+        return a * b;
     },
 };

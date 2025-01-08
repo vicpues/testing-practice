@@ -1,10 +1,11 @@
-import { capitalize, reverseString } from "./testing-practice";
+import { capitalize, reverseString, calculator } from "./testing-practice";
 
 it("Works", () => expect(true).toBe(true));
 
 it("Imported", () => {
     expect(capitalize).not.toBeUndefined();
     expect(reverseString).not.toBeUndefined();
+    expect(calculator).not.toBeUndefined();
 });
 
 describe("Capitalize", () => {

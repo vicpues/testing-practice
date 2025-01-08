@@ -14,3 +14,5 @@ export function reverseString(string) {
 
     return string.split("").reverse().join("");
 }
+
+export const calculator = {};

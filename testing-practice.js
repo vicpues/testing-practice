@@ -1,1 +1,3 @@
-export function capitalize() {}
+export function capitalize(string) {
+    return string;
+}

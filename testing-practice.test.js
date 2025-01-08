@@ -1,8 +1,11 @@
-import { capitalize } from "./testing-practice";
+import { capitalize, reverseString } from "./testing-practice";
 
 it("Works", () => expect(true).toBe(true));
 
-it("Imported", () => expect(capitalize).not.toBeUndefined());
+it("Imported", () => {
+    expect(capitalize).not.toBeUndefined();
+    expect(reverseString).not.toBeUndefined();
+});
 
 describe("Capitalize", () => {
     it("Returns a string", () =>
@@ -19,5 +22,20 @@ describe("Capitalize", () => {
     it("Deals with non-string values", () => {
         expect(capitalize()).toBeUndefined();
         expect(capitalize(null)).toBeNull();
+    });
+});
+
+describe("reverseString", () => {
+    it("Deals with empty strings", () => expect(reverseString("")).toBe(""));
+
+    it("Deals with non-string values", () => {
+        expect(reverseString()).toBeUndefined();
+        expect(reverseString(null)).toBeNull();
+    });
+
+    it("Reverses string", () => {
+        expect(reverseString("Sandwich")).toBe("hciwdnaS");
+        expect(reverseString("doG")).toBe("God");
+        expect(reverseString("A nice breakfast")).toBe("tsafkaerb ecin A");
     });
 });

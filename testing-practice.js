@@ -7,3 +7,10 @@ export function capitalize(string) {
 
     return `${firstChar}${restOfString}`;
 }
+
+export function reverseString(string) {
+    if (typeof string !== "string") return string;
+    if (string.length === 0) return string;
+
+    return string.split("").reverse().join("");
+}

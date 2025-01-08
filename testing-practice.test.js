@@ -10,3 +10,8 @@ it("Returns a string", () =>
 it("Capitalizes", () => expect(capitalize("duck")).toBe("Duck"));
 
 it("Deals with empty strings", () => expect(capitalize("")).toBe(""));
+
+it("Deals with non-string values", () => {
+    expect(capitalize()).toBeUndefined();
+    expect(capitalize(null)).toBeNull();
+});

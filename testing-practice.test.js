@@ -1,4 +1,9 @@
-import { capitalize, reverseString, calculator } from "./testing-practice";
+import {
+    capitalize,
+    reverseString,
+    calculator,
+    caesarCipher,
+} from "./testing-practice";
 
 it("Works", () => expect(true).toBe(true));
 
@@ -153,5 +158,39 @@ describe("calculator", () => {
 
         it("Deals with invalid number of args", () =>
             expect(() => calculator.multiply(3)).toThrow(TypeError));
+    });
+
+    describe("caesar cipher", () => {
+        it("Exists", () => expect(caesarCipher).not.toBeUndefined());
+
+        it("Converts a string", () =>
+            expect(caesarCipher("hello", 3)).toBe("khoor"));
+
+        it("Wraps around correctly", () =>
+            expect(caesarCipher("xyz", 3)).toBe("abc"));
+
+        it("Preserves capitalisation", () =>
+            expect(caesarCipher("heLLO", 3)).toBe("khOOR"));
+
+        it("Preserves punctuation", () =>
+            expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!"));
+
+        it("Rejects wrong number of arguments", () =>
+            expect(() => caesarCipher("hello")).toThrow(TypeError));
+
+        it("Rejects non-strings", () =>
+            expect(() => caesarCipher(3, 3)).toThrow(
+                "First argument must be a string",
+            ));
+
+        it("Rejects non-numbers", () =>
+            expect(() => caesarCipher("hello", "world")).toThrow(
+                "Second argument must be a number",
+            ));
+
+        it("Rejects floats", () =>
+            expect(() => caesarCipher("hello", 3.2)).toThrow(
+                "Shift amount must be an integer",
+            ));
     });
 });

@@ -50,3 +50,41 @@ export const calculator = {
         return a * b;
     },
 };
+
+export function caesarCipher(string, shiftAmount) {
+    checkTypes();
+    const output = [];
+
+    for (let char of string) {
+        const shifted = shift(char);
+        output.push(shifted);
+    }
+
+    return output.join("");
+
+    // Private
+    function shift(char) {
+        const letters = "abcdefghijklmnopqrstuvwxyz";
+
+        const lower = char.toLowerCase();
+        const index = letters.indexOf(lower);
+        if (index === -1) return char;
+
+        const newIndex = (index + shiftAmount) % letters.length;
+        let newLetter = letters[newIndex];
+        if (lower !== char) newLetter = newLetter.toUpperCase();
+
+        return newLetter;
+    }
+
+    function checkTypes() {
+        if (typeof string !== "string")
+            throw new TypeError("First argument must be a string");
+
+        if (typeof shiftAmount !== "number")
+            throw new TypeError("Second argument must be a number");
+
+        if (Math.floor(shiftAmount) !== shiftAmount)
+            throw new TypeError("Shift amount must be an integer");
+    }
+}

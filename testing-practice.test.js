@@ -42,7 +42,7 @@ describe("reverseString", () => {
 });
 
 describe("calculator", () => {
-    describe("toNumber", ()=>{
+    describe("toNumber", () => {
         it("Exists", () => expect(calculator.toNumber).not.toBeUndefined());
 
         it("Converts strings to numbers", () =>
@@ -56,7 +56,7 @@ describe("calculator", () => {
 
         it("Deals with invalid number of args", () =>
             expect(() => calculator.toNumber()).toThrow(TypeError));
-    })
+    });
 
     describe("add", () => {
         it("Exists", () => expect(calculator.add).not.toBeUndefined());
@@ -81,6 +81,28 @@ describe("calculator", () => {
 
         it("Deals with invalid number of args", () =>
             expect(() => calculator.add(3)).toThrow(TypeError));
+    });
+
+    describe("subtract", () => {
+        it("Exists", () => expect(calculator.subtract).not.toBeUndefined());
+
+        it("Subtracts an integer from another", () => {
+            expect(calculator.subtract(3, 2)).toEqual(1);
+            expect(calculator.subtract(20, 11)).toEqual(9);
+            expect(calculator.subtract(1001, 345)).toEqual(656);
+        });
+
+        it("Subtracts floating point numbers", () =>
+            expect(calculator.subtract(0.2, 1)).toBeCloseTo(-0.8));
+
+        it("Deals with non-convertible strings", () =>
+            expect(() => calculator.subtract(5, "banana")).toThrow(TypeError));
+
+        it("Deals with other invalid types", () =>
+            expect(() => calculator.subtract(null, null)).toThrow(TypeError));
+
+        it("Deals with invalid number of args", () =>
+            expect(() => calculator.subtract(3)).toThrow(TypeError));
     });
 
     describe("multiply", () => {

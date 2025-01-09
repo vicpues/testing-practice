@@ -32,6 +32,12 @@ export const calculator = {
         return a + b;
     },
 
+    subtract: function (a, b) {
+        a = this.toNumber(a);
+        b = this.toNumber(b);
+        return a - b;
+    },
+
     multiply: function (a, b) {
         a = this.toNumber(a);
         b = this.toNumber(b);

@@ -105,6 +105,31 @@ describe("calculator", () => {
             expect(() => calculator.subtract(3)).toThrow(TypeError));
     });
 
+    describe("divide", () => {
+        it("Exists", () => expect(calculator.divide).not.toBeUndefined());
+
+        it("Divides one number by another", () => {
+            expect(calculator.divide(6, 2)).toEqual(3);
+            expect(calculator.divide(10, 11)).toBeCloseTo(0.909090909);
+            expect(calculator.divide(1001, 345)).toBeCloseTo(2.9014492753623);
+        });
+
+        it("Divide floating point numbers", () =>
+            expect(calculator.divide(0.2, 2)).toBeCloseTo(0.1));
+
+        it("Converts strings to numbers", () =>
+            expect(calculator.divide("2", "3")).toBeCloseTo(0.6666666666));
+
+        it("Deals with non-convertible strings", () =>
+            expect(() => calculator.divide(5, "banana")).toThrow(TypeError));
+
+        it("Deals with other invalid types", () =>
+            expect(() => calculator.divide(null, null)).toThrow(TypeError));
+
+        it("Deals with invalid number of args", () =>
+            expect(() => calculator.divide(3)).toThrow(TypeError));
+    });
+
     describe("multiply", () => {
         it("Exists", () => expect(calculator.multiply).not.toBeUndefined());
 

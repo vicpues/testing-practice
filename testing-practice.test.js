@@ -3,6 +3,7 @@ import {
     reverseString,
     calculator,
     caesarCipher,
+    analyzeArray,
 } from "./testing-practice";
 
 it("Works", () => expect(true).toBe(true));
@@ -192,5 +193,26 @@ describe("calculator", () => {
             expect(() => caesarCipher("hello", 3.2)).toThrow(
                 "Shift amount must be an integer",
             ));
+    });
+
+    describe("analyze", () => {
+        const testArray = [1, 8, 3, 4, 2, 6];
+        it("Exists", () => expect(analyzeArray).not.toBeUndefined());
+
+        it("Calculates average", () => {
+            expect(analyzeArray(testArray).average).toBe(4);
+        });
+
+        it("Calculates min", () => {
+            expect(analyzeArray(testArray).min).toBe(1);
+        });
+
+        it("Calculates max", () => {
+            expect(analyzeArray(testArray).max).toBe(8);
+        });
+
+        it("Calculates length", () => {
+            expect(analyzeArray(testArray).length).toBe(6);
+        });
     });
 });

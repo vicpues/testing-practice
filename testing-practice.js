@@ -88,3 +88,12 @@ export function caesarCipher(string, shiftAmount) {
             throw new TypeError("Shift amount must be an integer");
     }
 }
+
+export function analyzeArray(arr) {
+    const length = arr.length;
+    const average = arr.reduce((prev, curr) => prev + curr) / length;
+    const min = arr.reduce((prev, curr) => (curr < prev ? curr : prev));
+    const max = arr.reduce((prev, curr) => (curr > prev ? curr : prev));
+
+    return { average, min, max, length };
+}
